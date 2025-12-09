@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>بيتكوين كاش - الاستثمار</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <div class="logo">بيتكوين كاش</div>
+      <div class="user-box" id="userBox">
+        <div class="user-dot"></div>
+        <span id="userName">غير مسجل</span>
+      </div>
+    </div>
+
+    <div class="balance-card">
+      <div class="balance-title">إجمالي استثماراتك</div>
+      <div class="balance-value" id="totalInvestments">0.00 USDT</div>
+      <div class="network-pill">
+        <div class="network-dot"></div>
+        <span>الاستثمار بعملة USDT - شبكة TRC20 فقط</span>
+      </div>
+    </div>
+
+    <div class="section-title">خطط الاستثمار</div>
+
+    <div class="plans">
+      <div class="plan-card">
+        <div class="plan-amount">10 USDT</div>
+        <div class="plan-label">الحد الأدنى للاستثمار</div>
+        <div class="plan-row">
+          <span>المدّة:</span>
+          <span>40 - 50 يوم</span>
+        </div>
+        <div class="plan-row">
+          <span>العائد:</span>
+          <span class="profit-highlight">+80%</span>
+        </div>
+        <button class="plan-button" onclick="openInvestmentModal(10)">استثمر الآن</button>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-amount">50 USDT</div>
+        <div class="plan-label">خطة متوسطة</div>
+        <div class="plan-row">
+          <span>المدّة:</span>
+          <span>40 - 50 يوم</span>
+        </div>
+        <div class="plan-row">
+          <span>العائد:</span>
+          <span class="profit-highlight">+80%</span>
+        </div>
+        <button class="plan-button" onclick="openInvestmentModal(50)">استثمر الآن</button>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-amount">100 USDT</div>
+        <div class="plan-label">خطة قياسية</div>
+        <div class="plan-row">
+          <span>المدّة:</span>
+          <span>40 - 50 يوم</span>
+        </div>
+        <div class="plan-row">
+          <span>العائد:</span>
+          <span class="profit-highlight">+80%</span>
+        </div>
+        <button class="plan-button" onclick="openInvestmentModal(100)">استثمر الآن</button>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-amount">150 USDT</div>
+        <div class="plan-label">خطة متقدمة</div>
+        <div class="plan-row">
+          <span>المدّة:</span>
+          <span>40 - 50 يوم</span>
+        </div>
+        <div class="plan-row">
+          <span>العائد:</span>
+          <span class="profit-highlight">+80%</span>
+        </div>
+        <button class="plan-button" onclick="openInvestmentModal(150)">استثمر الآن</button>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-amount">200 USDT</div>
+        <div class="plan-label">خطة كبار المستثمرين</div>
+        <div class="plan-row">
+          <span>المدّة:</span>
+          <span>40 - 50 يوم</span>
+        </div>
+        <div class="plan-row">
+          <span>العائد:</span>
+          <span class="profit-highlight">+80%</span>
+        </div>
+        <button class="plan-button" onclick="openInvestmentModal(200)">استثمر الآن</button>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <span>تنبيه:</span> الدفع حصراً بعملة <b>USDT</b> على شبكة <b>TRC20</b> إلى محفظة إدارة الموقع.<br>
+      يجب عليك تسجيل الدخول وإنشاء حساب قبل البدء في الاستثمار.
+    </div>
+
+    <div class="section-title">ملخص استثماراتك</div>
+    <div id="investmentsList" class="list small-text">
+      لا توجد استثمارات حتى الآن.
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a class="nav-item active" href="index.html">
+        <span>📈</span>
+        الاستثمار
+      </a>
+      <a class="nav-item" href="wallet.html">
+        <span>💼</span>
+        المحفظة
+      </a>
+      <a class="nav-item" href="profile.html">
+        <span>👤</span>
+        الملف الشخصي
+      </a>
+      <a class="nav-item" href="dashboard.html">
+        <span>⚙️</span>
+        لوحة التحكم
+      </a>
+    </div>
+  </div>
+
+  <!-- مودال الاستثمار -->
+  <div class="modal-backdrop" id="investmentModal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">تفاصيل الاستثمار</div>
+        <button class="modal-close" onclick="closeInvestmentModal()">&times;</button>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-label">المبلغ الذي اخترته:</div>
+        <div class="modal-value" id="modalAmount">0 USDT</div>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-label">العائد المتوقع:</div>
+        <div class="modal-value" id="modalProfit">0 USDT (80%)</div>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-label">عنوان محفظة الإدارة (USDT TRC20):</div>
+        <div class="address-box" id="adminWalletBox"></div>
+        <div class="warning-text">
+          قم بتحويل المبلغ إلى هذا العنوان فقط على شبكة TRC20.
+          بعد التحويل اضغط على "تم التحويل" ليتم تسجيل الاستثمار في حسابك.
+        </div>
+      </div>
+
+      <div class="modal-row">
+        <button class="modal-button" onclick="confirmInvestmentFromModal()">
+          تم التحويل – سجل الاستثمار
+        </button>
+        <p class="small-hint">
+          التسجيل هنا داخلي داخل الموقع فقط، ويعتمد على أمانك في التحويل.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      initInvestmentPage();
+    });
+  </script>
+</body>
+</html>

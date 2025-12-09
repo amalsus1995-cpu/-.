@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>بيتكوين كاش - تسجيل الدخول / إنشاء حساب</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <div class="logo">بيتكوين كاش</div>
+      <div class="user-box">
+        <div class="user-dot"></div>
+        <span>حساب جديد أو تسجيل دخول</span>
+      </div>
+    </div>
+
+    <div class="auth-container">
+      <div class="auth-tabs">
+        <div id="tabLogin" class="auth-tab active" onclick="switchAuthTab('login')">تسجيل الدخول</div>
+        <div id="tabRegister" class="auth-tab" onclick="switchAuthTab('register')">إنشاء حساب</div>
+      </div>
+
+      <div id="authError" class="error-text"></div>
+      <div id="authInfo" class="small-text"></div>
+
+      <div id="loginForm">
+        <div class="field-group">
+          <div class="label">البريد الإلكتروني:</div>
+          <input id="loginEmail" class="input" type="email" placeholder="example@mail.com" />
+        </div>
+        <div class="field-group">
+          <div class="label">كلمة المرور:</div>
+          <input id="loginPassword" class="input" type="password" placeholder="••••••••" />
+        </div>
+        <button class="button-primary" onclick="handleLogin()">دخول</button>
+      </div>
+
+      <div id="registerForm" style="display:none;">
+        <div class="field-group">
+          <div class="label">اسم المستخدم:</div>
+          <input id="regUsername" class="input" type="text" placeholder="الاسم الذي يظهر داخل الموقع" />
+        </div>
+        <div class="field-group">
+          <div class="label">البريد الإلكتروني:</div>
+          <input id="regEmail" class="input" type="email" placeholder="example@mail.com" />
+        </div>
+        <div class="field-group">
+          <div class="label">كلمة المرور:</div>
+          <input id="regPassword" class="input" type="password" placeholder="••••••••" />
+        </div>
+        <div class="field-group">
+          <div class="label">تأكيد كلمة المرور:</div>
+          <input id="regPassword2" class="input" type="password" placeholder="أعد كتابة كلمة المرور" />
+        </div>
+        <button class="button-primary" onclick="handleRegister()">إنشاء حساب</button>
+      </div>
+
+      <p class="small-text center-text" style="margin-top:10px;">
+        ملاحظة: هذه النسخة تجريبية، يتم حفظ البيانات على جهازك فقط (localStorage).
+      </p>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a class="nav-item" href="index.html">
+        <span>📈</span>
+        الاستثمار
+      </a>
+      <a class="nav-item" href="wallet.html">
+        <span>💼</span>
+        المحفظة
+      </a>
+      <a class="nav-item" href="profile.html">
+        <span>👤</span>
+        الملف الشخصي
+      </a>
+      <a class="nav-item" href="dashboard.html">
+        <span>⚙️</span>
+        لوحة التحكم
+      </a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      initAuthPage();
+    });
+  </script>
+</body>
+</html>

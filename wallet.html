@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>بيتكوين كاش - المحفظة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <div class="logo">بيتكوين كاش</div>
+      <div class="user-box">
+        <div class="user-dot"></div>
+        <span id="userName">...</span>
+      </div>
+    </div>
+
+    <div class="page-title">المحفظة</div>
+
+    <div class="balance-card">
+      <div class="balance-title">رصيدك التقريبي (استثمارات مسجلة)</div>
+      <div class="balance-value" id="walletBalance">0.00 USDT</div>
+      <div class="network-pill">
+        <div class="network-dot"></div>
+        <span>إيداع وسحب بعملة USDT - TRC20 فقط</span>
+      </div>
+    </div>
+
+    <div class="section-title">معلومات الإيداع</div>
+    <div class="note-box">
+      <div class="label">عنوان محفظة الإدارة (ترسل إليها الإيداع):</div>
+      <div class="address-box">TPNoGerv1EMBSdrs9Yca93eCQUVsoNiRvq</div>
+      <div class="small-text">
+        قم بالتحويل إلى هذا العنوان من أي منصة تدعم USDT TRC20،
+        ثم سجّل الاستثمار من صفحة "الاستثمار".
+      </div>
+    </div>
+
+    <div class="section-title">طلب سحب</div>
+    <div id="withdrawSection">
+      <div class="field-group">
+        <div class="label">عنوان محفظتك (USDT TRC20):</div>
+        <input id="userWithdrawAddress" class="input" type="text" placeholder="الصق عنوان محفظتك هنا" />
+      </div>
+      <div class="field-group">
+        <div class="label">المبلغ المطلوب سحبه (USDT):</div>
+        <input id="userWithdrawAmount" class="input" type="number" min="1" step="1" placeholder="مثال: 50" />
+      </div>
+      <button class="button-primary" onclick="requestWithdraw()">إرسال طلب السحب</button>
+      <div class="small-text">
+        لا يمكن السحب قبل مرور <b>27 يوم</b> من أول استثمار مسجل في حسابك.
+      </div>
+      <div class="error-text" id="withdrawError"></div>
+      <div class="small-text" id="withdrawInfo"></div>
+    </div>
+
+    <div class="section-title">سجل التحويلات</div>
+    <div id="txList" class="list small-text">
+      لا توجد تحويلات حتى الآن.
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a class="nav-item" href="index.html">
+        <span>📈</span>
+        الاستثمار
+      </a>
+      <a class="nav-item active" href="wallet.html">
+        <span>💼</span>
+        المحفظة
+      </a>
+      <a class="nav-item" href="profile.html">
+        <span>👤</span>
+        الملف الشخصي
+      </a>
+      <a class="nav-item" href="dashboard.html">
+        <span>⚙️</span>
+        لوحة التحكم
+      </a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      initWalletPage();
+    });
+  </script>
+</body>
+</html>
